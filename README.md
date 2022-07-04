@@ -1,3 +1,11 @@
 # Programming Assignments
 
-The folder includes [./Heavy_Backend.md](./Heavy_Backend.md) problem. Please, implement the task and send us the results for review
+#Note
+
+#clone the repo
+npm install
+npm run start
+
+#testing
+npm run test
+
