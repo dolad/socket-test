@@ -1,3 +1,4 @@
+import {IResponse} from '../services/HashCalc';
 import {SocketState} from './states';
 
 export interface IMessage<T> {
@@ -17,4 +18,4 @@ const makeMessage =
 export const Loading = makeMessage<string>(SocketState.LOADING);
 export const ProcessingHash = makeMessage<void>(SocketState.PROCESSING);
 export const Failed = makeMessage<string>(SocketState.FAILED);
-export const Done = makeMessage<string>(SocketState.DONE);
+export const Done = makeMessage<IResponse>(SocketState.DONE);

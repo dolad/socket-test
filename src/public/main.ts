@@ -16,6 +16,7 @@ window.__SOCKET__ = socket;
 const userHashContent = document.getElementById('userHash') as HTMLInputElement;
 const hashResult = document.getElementById('hashResult') as HTMLInputElement;
 const submitHash = document.getElementById('submitHandler') as Element;
+const nounceValue = document.getElementById('nounceValue') as Element;
 
 submitHash.addEventListener('click', (e: Event) => {
   if (!userHashContent.value) {
@@ -29,4 +30,4 @@ submitHash.addEventListener('click', (e: Event) => {
   hashResult.value = event.state;
 });
 
-initHashCalculationHandlers(hashResult);
+initHashCalculationHandlers(hashResult, nounceValue);
