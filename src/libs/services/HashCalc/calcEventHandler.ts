@@ -12,6 +12,7 @@ export const initHashCalculationHandlers = async (
     socket.emit(SocketState.PROCESSING);
     const data = await hashCalcService.calculateHash(eventData.data);
     const event = Done(data);
+    console.log(event);
     socket.emit(event.state, event);
   });
 };
