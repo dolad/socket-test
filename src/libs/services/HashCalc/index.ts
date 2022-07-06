@@ -1,8 +1,11 @@
 import {Keccak} from 'sha3';
 
 export class HashCalculationService {
+  private generateNounceValue(): number {
+    return Math.floor(Math.random() * 1000);
+  }
   calculateHash(inputHash: string): Promise<IResponse> {
-    return wait(inputHash);
+    return wait(inputHash, this.generateNounceValue());
   }
 }
 
@@ -11,12 +14,11 @@ export interface IResponse {
   result: string;
   nounce: number;
 }
-const wait = (val: string): Promise<IResponse> =>
+const wait = (val: string, nounce: number): Promise<IResponse> =>
   new Promise(res => {
-    const nounce = new Date().getTime();
     const sumHash = val + nounce;
-    const hash = new Keccak(256);
-    hash.update(sumHash);
-    const result = hash.digest('hex');
+    const newHash = new Keccak(256);
+    newHash.update(sumHash);
+    const result = newHash.digest('hex');
     res({result, nounce});
   });
