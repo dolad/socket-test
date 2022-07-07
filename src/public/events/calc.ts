@@ -13,7 +13,7 @@ export const initHashCalculationHandlers = (
     hashResult.value = 'hashResult is being Processed';
   });
   window.__SOCKET__.on(SocketState.DONE, (event: IMessage<IResponse>) => {
-    hashResult.value = event.data.result;
+    hashResult.value = event.data.newHash;
     nounceValue.innerHTML = `NounceValue is ${event.data.nounce.toString()}`;
   });
 
